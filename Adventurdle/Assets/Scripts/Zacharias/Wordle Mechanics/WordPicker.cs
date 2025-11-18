@@ -1,16 +1,28 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class WordPicker : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public List<string> wordList = new List<string>();
+
+    public string SelectedWord;
+
+   /* private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            pickNewWord();
+        }
+    }*/
+
+    public void pickNewWord()
+    {
+       if(wordList == null || wordList.Count == 0)
+        {
+            return;
+        }
+
+        int index = Random.Range(0, wordList.Count);
+        SelectedWord = wordList[index];
     }
 }
