@@ -2,22 +2,22 @@ using UnityEngine;
 using TMPro;
 public class WordleEnterer : MonoBehaviour
 {
-    TMP_Text text;
+    public TMP_Text guessedWord;
 
     private void Start()
     {
-        string hej = "abe";
-        string hej2 = "jul";
-        for (int i = 0; i < hej.Length; i++)
+        string typedWord = guessedWord.text;
+        string selectedWord = "jul";
+        for (int i = 0; i < typedWord.Length; i++)
         {
-            if (hej[i] == hej2[0])
+            if (typedWord[i] == selectedWord[i])
             {
+
                 if(i == 0)
                 {
                     break;
                 }
             }
         }
-       
     }
 }
