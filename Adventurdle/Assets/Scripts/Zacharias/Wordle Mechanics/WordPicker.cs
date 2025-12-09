@@ -7,13 +7,10 @@ public class WordPicker : MonoBehaviour
 
     public string SelectedWord;
 
-   /* private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            pickNewWord();
-        }
-    }*/
+        pickNewWord();
+    }
 
     public void pickNewWord()
     {
