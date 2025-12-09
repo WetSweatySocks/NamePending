@@ -27,23 +27,6 @@ public class time : MonoBehaviour
             timer = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GuessedWordCorrect();
-        }
-
         timeText.text = $"{timer}";
-    }
-
-    public void GuessedWordCorrect()
-    {
-        DC.doorCount += 1;
-
-        timer += getTime;
-
-        if (timer > maxTimer)
-        {
-            timer = maxTimer;
-        }
     }
 }
