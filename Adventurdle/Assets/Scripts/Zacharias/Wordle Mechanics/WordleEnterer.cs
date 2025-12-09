@@ -1,9 +1,20 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 public class WordleEnterer : MonoBehaviour
 {
-    WordPicker WP;   
-    public TMP_Text guessedWord;
+    WordPicker WP;
+
+    public TMP_InputField EnteredWord;
+
+    public List<char> presentLetters = new List<char>();
+
+
+
+    private void Update()
+    {
+        string typedWord = EnteredWord.text;
+    }
 
     private void Start()
     {
@@ -12,26 +23,31 @@ public class WordleEnterer : MonoBehaviour
 
     public void enterWord()
     {
-        if(guessedWord != null && Input.GetKeyDown(KeyCode.KeypadEnter))
+        if(EnteredWord != null && Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             checkWord();
         }
     }
 
-
     public void checkWord()
     {
-        string typedWord = guessedWord.text;
+        string typedWord = EnteredWord.text;
         string usedWord = WP.SelectedWord;
         for (int i = 0; i < typedWord.Length; i++)
         {
+            // Hvis ordet er 100% rigtigt
+
             if (typedWord[i] == usedWord[i])
             {
-                
+                presentLetters.Clear();
             }
-            else if(usedWord.Contains(typedWord[i]))
+            // Hvis ordet indenholder bogstavet, tilføj det til en liste
+            else if(usedWord.Contains(typedWord[i].ToString()))
             {
-
+                if (!presentLetters.Contains(typedWord[i]))
+                {
+                    presentLetters.Add(typedWord[i]);
+                }
             }
         }
     }
