@@ -2,9 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 public class WordPicker : MonoBehaviour
 {
-
     public List<string> wordList = new List<string>();
-
     public string SelectedWord;
 
     private void Start()

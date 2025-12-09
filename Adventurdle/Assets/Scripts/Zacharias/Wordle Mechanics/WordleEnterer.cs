@@ -3,13 +3,12 @@ using TMPro;
 using System.Collections.Generic;
 public class WordleEnterer : MonoBehaviour
 {
+    wincon WC;
     WordPicker WP;
 
     public TMP_InputField EnteredWord;
 
     public List<char> presentLetters = new List<char>();
-
-
 
     private void Update()
     {
@@ -18,6 +17,7 @@ public class WordleEnterer : MonoBehaviour
 
     private void Start()
     {
+        WC = FindFirstObjectByType<wincon>();
         WP = GetComponent<WordPicker>();
     }
 
@@ -39,8 +39,10 @@ public class WordleEnterer : MonoBehaviour
 
             if (typedWord[i] == usedWord[i])
             {
+                
                 presentLetters.Clear();
             }
+
             // Hvis ordet indenholder bogstavet, tilføj det til en liste
             else if(usedWord.Contains(typedWord[i].ToString()))
             {
