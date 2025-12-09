@@ -9,13 +9,22 @@ public class time : MonoBehaviour
     public int getTime = 30;
     public TMP_Text timeText;
 
+    doorcount DC;
+
+    private void Start()
+    {
+        DC = FindFirstObjectByType<doorcount>();
+    }
+
     private void Update()
     {
-        timer -= Time.deltaTime;
-
-        if (timer <= 0)
+        if (timer > 0)
         {
-            Die();
+            timer -= Time.deltaTime;
+        }
+        else
+        {
+            timer = 0;
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -26,13 +35,10 @@ public class time : MonoBehaviour
         timeText.text = $"{timer}";
     }
 
-    public void Die()
-    {
-        print("YOU DEID");
-    }
-
     public void GuessedWordCorrect()
     {
+        DC.doorCount += 1;
+
         timer += getTime;
 
         if (timer > maxTimer)
