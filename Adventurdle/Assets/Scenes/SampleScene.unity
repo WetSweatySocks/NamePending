@@ -425,8 +425,6 @@ MonoBehaviour:
   wordList:
   - Knight
   - Dragon
-  - Lords
-  - bitchin
   SelectedWord: 
 --- !u!114 &749148072
 MonoBehaviour:
