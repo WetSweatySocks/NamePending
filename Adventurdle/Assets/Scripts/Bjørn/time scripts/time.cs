@@ -27,6 +27,9 @@ public class time : MonoBehaviour
             timer = 0;
         }
 
-        timeText.text = $"{timer}";
+        var ballTime = timer;
+        ballTime = Mathf.Round(ballTime);
+
+        timeText.text = $"{ballTime}";
     }
 }
