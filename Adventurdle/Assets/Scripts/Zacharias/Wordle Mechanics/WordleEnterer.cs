@@ -12,7 +12,11 @@ public class WordleEnterer : MonoBehaviour
 
     private void Update()
     {
-        string typedWord = EnteredWord.text;
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Debug.Log("Word Entered");
+            enterWord();
+        }
     }
 
     private void Start()
@@ -23,8 +27,9 @@ public class WordleEnterer : MonoBehaviour
 
     public void enterWord()
     {
-        if(EnteredWord != null && Input.GetKeyDown(KeyCode.KeypadEnter))
+        if(EnteredWord != null)
         {
+            Debug.Log("Word Sent to Check");
             checkWord();
         }
     }
@@ -33,14 +38,17 @@ public class WordleEnterer : MonoBehaviour
     {
         string typedWord = EnteredWord.text;
         string usedWord = WP.SelectedWord;
+
         for (int i = 0; i < typedWord.Length; i++)
         {
             // Hvis ordet er 100% rigtigt
-
             if (typedWord[i] == usedWord[i])
             {
-                
+                Debug.Log("Word Is Correct!");
+                WC.GuessedWordCorrect();
                 presentLetters.Clear();
+                EnteredWord.text = "";
+                break;
             }
 
             // Hvis ordet indenholder bogstavet, tilføj det til en liste
@@ -53,6 +61,4 @@ public class WordleEnterer : MonoBehaviour
             }
         }
     }
-
-
 }

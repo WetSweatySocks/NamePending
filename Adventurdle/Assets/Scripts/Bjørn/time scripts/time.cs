@@ -27,6 +27,6 @@ public class time : MonoBehaviour
             timer = 0;
         }
 
-        timeText.text = $"{timer}";
+       timeText.text = $"{timer}";
     }
 }
