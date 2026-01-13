@@ -27,13 +27,11 @@ public class time : MonoBehaviour
             timer = 0;
         }
 
-<<<<<<< HEAD
-       timeText.text = $"{timer}";
-=======
+        timeText.text = $"{timer}";
+
         var ballTime = timer;
         ballTime = Mathf.Round(ballTime);
 
         timeText.text = $"{ballTime}";
->>>>>>> 4916ab65f7fd92bd893ffe8386d492cead4ec05b
     }
 }
