@@ -34,31 +34,30 @@ public class WordleEnterer : MonoBehaviour
         }
     }
 
-    public void checkWord()
+   public void checkWord()
+{
+    string typedWord = EnteredWord.text.ToLowerInvariant();
+    string usedWord = WP.SelectedWord.ToLowerInvariant();
+
+    for (int i = 0; i < typedWord.Length; i++)
     {
-        string typedWord = EnteredWord.text;
-        string usedWord = WP.SelectedWord;
-
-        for (int i = 0; i < typedWord.Length; i++)
+        // Exact letter + position match
+        if (typedWord[i] == usedWord[i])
         {
-            // Hvis ordet er 100% rigtigt
-            if (typedWord[i] == usedWord[i])
+            Debug.Log("Word Is Correct!");
+            WC.GuessedWordCorrect();
+            presentLetters.Clear();
+            EnteredWord.text = "";
+            break;
+        }
+        // Letter exists somewhere in the word
+        else if (usedWord.Contains(typedWord[i]))
+        {
+            if (!presentLetters.Contains(typedWord[i]))
             {
-                Debug.Log("Word Is Correct!");
-                WC.GuessedWordCorrect();
-                presentLetters.Clear();
-                EnteredWord.text = "";
-                break;
-            }
-
-            // Hvis ordet indenholder bogstavet, tilføj det til en liste
-            else if(usedWord.Contains(typedWord[i].ToString()))
-            {
-                if (!presentLetters.Contains(typedWord[i]))
-                {
-                    presentLetters.Add(typedWord[i]);
-                }
+                presentLetters.Add(typedWord[i]);
             }
         }
     }
+}
 }
