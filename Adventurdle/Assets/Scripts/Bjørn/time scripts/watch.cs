@@ -6,6 +6,8 @@ public class watch : MonoBehaviour
     public int bottomPos = -614;
 
     public int pos = -614;
+
+    public int spd = 5;
     void Start()
     {
         
@@ -13,7 +15,7 @@ public class watch : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             pos = topPos;
         }
@@ -24,7 +26,11 @@ public class watch : MonoBehaviour
 
         if (transform.position.y > pos)
         {
-            
+            transform.position = transform.position + new Vector3(0,-spd,0);
+        }
+        if (transform.position.y < pos)
+        {
+            transform.position = transform.position + new Vector3(0, spd, 0);
         }
     }
 }
