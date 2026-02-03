@@ -7,7 +7,7 @@ public class watch : MonoBehaviour
 
     public int pos = -614;
 
-    public int spd = 5;
+    public int spd = 900;
     void Start()
     {
         
@@ -26,11 +26,11 @@ public class watch : MonoBehaviour
 
         if (transform.position.y > pos)
         {
-            transform.position = transform.position + new Vector3(0,-spd,0);
+            transform.position = transform.position + new Vector3(0,-spd,0) * Time.deltaTime;
         }
         if (transform.position.y < pos)
         {
-            transform.position = transform.position + new Vector3(0, spd, 0);
+            transform.position = transform.position + new Vector3(0, spd, 0) * Time.deltaTime;
         }
     }
 }
