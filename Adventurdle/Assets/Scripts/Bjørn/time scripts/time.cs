@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 public class time : MonoBehaviour
 {
     public float timer = 300;
-    public float maxTimer = 300;
+    public float maxTimer = 360;
     public int getTime = 30;
     public TMP_Text timeText;
 
@@ -27,7 +27,10 @@ public class time : MonoBehaviour
             timer = 0;
         }
 
-
+        if (timer > maxTimer)
+        {
+            timer = maxTimer;
+        }
 
        timeText.text = $"{timer}";
 
